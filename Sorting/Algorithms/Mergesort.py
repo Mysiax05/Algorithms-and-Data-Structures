@@ -21,9 +21,3 @@ def Mergesort(T,p,r):
         Mergesort(T,q+1,r)
         Merge(T,p,q,r)
     return
-
-Tab = [0,4,11,2,6,0,4,71]
-
-Mergesort(Tab,0,len(Tab)-1)
-
-print(Tab)
