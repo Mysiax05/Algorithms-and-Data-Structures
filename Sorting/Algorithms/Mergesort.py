@@ -1,9 +1,10 @@
+# Computional Complexity O(nlogn)
+# Memory Complexity O(n)
 def Merge(T,p,q,r):
     n1 = q + 1 - p
     n2 = r - q
     L = [T[i+p] if i < n1 else float('inf') for i in range(n1+1)]
     R = [T[i+q+1] if i < n2 else float('inf') for i in range(n2+1)]
-
     i,j = 0,0
     for k in range(p,r+1):
         if L[i] <= R[j]:
