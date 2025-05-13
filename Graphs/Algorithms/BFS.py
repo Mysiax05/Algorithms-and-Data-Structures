@@ -1,4 +1,4 @@
-# adjacency list O(V + E)
+# adjacency list O(V+E)
 def bfs_list(G,s):
     from queue import Queue
 
