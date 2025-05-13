@@ -26,7 +26,6 @@ def top_sort_matrix(G):
                 dfs_vist(G,v)
         result.append(u)
     # end def
-
     V = len(G)
     visited = [False] * V
     result = []
