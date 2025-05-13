@@ -1,5 +1,3 @@
-# Directed Acyclic Graph
-
 # adjacency list O(V+E)
 def top_sort_list(G):
     def dfs_visit(G,u):
