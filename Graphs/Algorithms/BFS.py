@@ -1,57 +1,47 @@
-# adjacency list O(V+E)
-from queue import Queue
+# adjacency list O(V + E)
 def bfs_list(G,s):
-    queue = Queue()
+    from queue import Queue
+
     V = len(G)
+    q = Queue()
     visited = [False] * V
     parent = [None] * V
-    distance = [float('inf')] * V
+    dist = [float('inf')] * V
 
     visited[s] = True
-    distance[s] = 0
-    queue.put(s)
+    dist[s] = 0
+    q.put(s)
+    while not q.empty():
+        u = q.get()
+        for v in G[u]:
+            if not visited[v]:
+                visited[v] = True
+                parent[v] = u
+                dist[v] = dist[u] + 1
+                q.put(v)
 
-    while not queue.empty():
-        v = queue.get()
-        for u in G[v]:
-            if not visited[u]:
-                parent[u] = v
-                distance[u] = distance[v] + 1
-                visited[u] = True
-                queue.put(u)
-    return visited,parent,distance
+    return visited, parent, dist
 
 # adjacency matrix O(V^2)
 def bfs_matrix(G,s):
-    queue = Queue()
+    from queue import Queue
+
     V = len(G)
+    q = Queue()
     visited = [False] * V
     parent = [None] * V
-    distance = [float('inf')] * V
+    dist = [float('inf')] * V
 
     visited[s] = True
-    distance[s] = 0
-    queue.put(s)
+    dist[s] = 0
+    q.put(s)
+    while not q.empty():
+        u = q.get()
+        for v in range(V):
+            if G[v][u] == 1 and not visited[v]:
+                visited[v] = True
+                parent[v] = u
+                dist[v] = dist[u] + 1
+                q.put(v)
 
-    while not queue.empty():
-        v = queue.get()
-        for u in range(V):
-            if G[v][u] == 1 and not visited[u]:
-                parent[u] = v
-                distance[u] = distance[v] + 1
-                visited[u] = True
-                queue.put(u)
-    return visited,parent,distance
-
-list = [[1,2],[0,4,5],[0,3,4],[2,6],[1,2,6],[1,6],[3,4,5]]
-
-matrix = [[0,1,1,0,0,0,0],
-          [1,0,0,0,1,1,0],
-          [1,0,0,1,1,0,0],
-          [0,0,1,0,0,0,1],
-          [0,1,1,0,0,0,1],
-          [0,1,0,0,0,0,1],
-          [0,0,0,1,1,1,0]]
-
-print(bfs_list(list,0))
-print(bfs_matrix(matrix,0))
+    return visited, parent, dist
