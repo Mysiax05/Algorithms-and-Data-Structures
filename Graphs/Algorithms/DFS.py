@@ -22,7 +22,7 @@ def dfs_list(G,s):
 
     return visited, parent, p_time
 
-# adjacency matrix O(V^2)
+# adjacency matrix  O(V^2)
 def dfs_matrix(G,s):
     def dfs_visit(G,u):
         nonlocal time
