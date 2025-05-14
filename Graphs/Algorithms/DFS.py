@@ -11,7 +11,6 @@ def dfs_list(G,s):
                 parent[v] = u
                 dfs_visit(G,v)
     # end def
-
     V = len(G)
     time = 0
     visited = [False] * V
@@ -36,7 +35,6 @@ def dfs_matrix(G,s):
                 parent[v] = u
                 dfs_visit(G,v)
     # end def
-    
     V = len(G)
     time = 0
     visited = [False] * V
