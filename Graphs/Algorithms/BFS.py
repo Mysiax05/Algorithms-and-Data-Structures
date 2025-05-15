@@ -1,7 +1,6 @@
 # adjacency list O(V+E)
 def bfs_list(G,s):
     from queue import Queue
-
     V = len(G)
     q = Queue()
     visited = [False] * V
@@ -25,7 +24,6 @@ def bfs_list(G,s):
 # adjacency matrix O(V^2)
 def bfs_matrix(G,s):
     from queue import Queue
-
     V = len(G)
     q = Queue()
     visited = [False] * V
