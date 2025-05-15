@@ -19,11 +19,11 @@ def top_sort_list(G):
 
 # adjacency matrix O(V^2)
 def top_sort_matrix(G):
-    def dfs_vist(G,u):
+    def dfs_visit(G,u):
         visited[u] = True
         for v in range(len(G)):
             if G[u][v] == 1 and not visited[v]:
-                dfs_vist(G,v)
+                dfs_visit(G,v)
         result.append(u)
     # end def
     V = len(G)
@@ -32,6 +32,6 @@ def top_sort_matrix(G):
 
     for u in range(V):
         if not visited[u]:
-            dfs_vist(G,u)
+            dfs_visit(G,u)
     
     return result[::-1]
