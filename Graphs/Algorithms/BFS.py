@@ -36,7 +36,7 @@ def bfs_matrix(G,s):
     while not q.empty():
         u = q.get()
         for v in range(V):
-            if G[v][u] == 1 and not visited[v]:
+            if G[u][v] == 1 and not visited[v]:
                 visited[v] = True
                 parent[v] = u
                 dist[v] = dist[u] + 1
