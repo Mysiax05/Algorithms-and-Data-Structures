@@ -30,7 +30,7 @@ def dfs_matrix(G,s):
         p_time[u] = time
         time += 1
 
-        for v in G[u]:
+        for v in range(len(G)):
             if G[u][v] == 1 and not visited[v]:
                 parent[v] = u
                 dfs_visit(G,v)
