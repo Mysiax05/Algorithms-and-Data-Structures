@@ -20,20 +20,18 @@ def euler_list(G):
     # checking if all vertices are of even degrees
     for u in range(V):
         if len(G[u]) % 2 == 1: return None
+    #setting start vertex
+    s = next((u for u in range(V) if len(G[u]) > 0), None)
+    if s is None:
+        return []
     # checking if graph is connected
     visited = [False] * V
-    dfs_check(G,0)
+    dfs_check(G,s)
     for v in range(V):
         if not visited[v]: return None
-
     #copying the graph so as not to overwrite the data
     graph = deepcopy(G)
     euler_cycle = []
-
-    #setting start vertex
-    s = next((i for i in range(V) if len(G[i]) > 0), None)
-    if s is None:
-        return []
 
     dfs_visit(s)
     
@@ -63,20 +61,18 @@ def euler_matrix(G):
         degree = sum(G[u])
         if degree % 2 != 0:
             return None
-    # checking if graph is connected
-    visited = [False] * V
-    dfs_check(G,0)
-    for v in range(V):
-        if not visited[v]: return None
-
-    #copying the graph so as not to overwrite the data
-    graph = deepcopy(G)
-    euler_cycle = []
-
     #setting start vertex
     s = next((i for i in range(V) if sum(G[i]) > 0), None)
     if s is None:
         return []
+    # checking if graph is connected
+    visited = [False] * V
+    dfs_check(G,s)
+    for v in range(V):
+        if not visited[v]: return None
+    #copying the graph so as not to overwrite the data
+    graph = deepcopy(G)
+    euler_cycle = []
 
     dfs_visit(s)
     
