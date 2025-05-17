@@ -1,4 +1,4 @@
-# adjacency list O(ElogV)
+# adjacency list O(ElogV) 
 def dijkstra_list(G,s):
     from queue import PriorityQueue
     V = len(G)
