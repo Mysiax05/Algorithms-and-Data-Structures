@@ -19,7 +19,7 @@ def dijkstra_list(G,s):
                 dist[v] = dist[u] + w
                 parent[v] = u
                 q.put((dist[v],v))
-    return visited, parent, dist
+    return dist, parent
 
 # adjacency matrix O(V^2)
 def dijkstra_matrix(G,s):
@@ -42,4 +42,4 @@ def dijkstra_matrix(G,s):
                 parent[v] = u
                 dist[v] = dist[u] + G[u][v]
                 q.put((dist[v],v))
-    return visited, parent, dist
+    return dist, parent
