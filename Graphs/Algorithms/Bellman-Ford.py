@@ -18,8 +18,8 @@ def bellman_ford(E,s):
     
     return dist
 
-# ATTENTION!
-# This conversion is intended for use with the Bellman-Ford algorithm only
+# NOTE
+# This conversion is intended for use with the Bellman-Ford algorithm
 # !If the graph is undirected, duplicate edges are created, such as: (4,2,0) and (2,4,0)!
 
 # changing the representation of an adjacency list to an edge list O(V+E)
