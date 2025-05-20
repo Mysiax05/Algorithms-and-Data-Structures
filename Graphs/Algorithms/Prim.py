@@ -37,9 +37,9 @@ def prim_matrix(G,s):
         if visited[u]:
              continue
         visited[u] = True
-        for v,w in G[u]:
-            if not visited[v] and weight[v] > w:
-                weight[v] = w
+        for v in range(V):
+            if G[u][v] != float('inf') and not visited[v] and weight[v] > G[u][v]:
+                weight[v] = G[u][v]
                 parent[v] = u
-                q.put((w,v))
+                q.put((G[u][v],v))
     return parent, sum(weight)
