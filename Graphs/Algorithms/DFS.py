@@ -3,7 +3,7 @@ def dfs_list(G,s):
     def dfs_visit(G,u):
         nonlocal time
         visited[u] = True
-        p_time[u] = time
+        finish_time[u] = time
         time += 1
 
         for v in G[u]:
@@ -15,19 +15,18 @@ def dfs_list(G,s):
     time = 0
     visited = [False] * V
     parent = [None] * V
-    #processing time
-    p_time = [float('inf')] * V
+    finish_time = [float('inf')] * V
 
     dfs_visit(G,s)
 
-    return visited, parent, p_time
+    return visited, parent, finish_time
 
 # adjacency matrix O(V^2)
 def dfs_matrix(G,s):
     def dfs_visit(G,u):
         nonlocal time
         visited[u] = True
-        p_time[u] = time
+        finish_time[u] = time
         time += 1
 
         for v in range(len(G)):
@@ -39,9 +38,8 @@ def dfs_matrix(G,s):
     time = 0
     visited = [False] * V
     parent = [None] * V
-    #processing time
-    p_time = [float('inf')] * V
+    finish_time = [float('inf')] * V
 
     dfs_visit(G,s)
 
-    return visited, parent, p_time
+    return visited, parent, finish_time
