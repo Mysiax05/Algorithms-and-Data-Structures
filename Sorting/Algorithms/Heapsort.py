@@ -1,4 +1,4 @@
-# O(nlogn)
+#O(nlogn)
 def heapsort(T):
     def parent(i):
         return (i-1)//2
