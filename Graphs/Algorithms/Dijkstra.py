@@ -15,7 +15,7 @@ def dijkstra_list(G,s):
             continue
         visited[u] = True
         for v,w in G[u]:
-            if not visited[v] and dist[v] > dist[u] + w:
+            if dist[v] > dist[u] + w:
                 dist[v] = dist[u] + w
                 parent[v] = u
                 q.put((dist[v],v))
@@ -38,7 +38,7 @@ def dijkstra_matrix(G,s):
             continue
         visited[u] = True
         for v in range(V):
-            if G[u][v] != float('inf') and not visited[v] and dist[v] > dist[u] + G[u][v]:
+            if G[u][v] != float('inf') and dist[v] > dist[u] + G[u][v]:
                 parent[v] = u
                 dist[v] = dist[u] + G[u][v]
                 q.put((dist[v],v))
