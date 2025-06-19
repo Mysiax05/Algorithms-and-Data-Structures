@@ -19,7 +19,7 @@ def lomuto_quickselect(T, p, r, k):
         return lomuto_quickselect(T, p, idx - 1, k)
     else:
         return lomuto_quickselect(T, idx + 1, r, k - (idx - p + 1))
-
+ 
 #Hoare version O(n)
 from random import randint
 def hoare_quickselect(T, p, r, k):
